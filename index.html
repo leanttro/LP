@@ -876,9 +876,16 @@ footer {
   .stats-bar-inner { grid-template-columns: 1fr 1fr; }
   .security-grid { grid-template-columns: 1fr 1fr; }
   .carousel-slide { min-width: 100%; }
-  .cs-body { height: 280px; }
+  /* Fix carrossel: usa aspect-ratio em vez de altura fixa para evitar zoom nas imagens largas */
+  .cs-body { height: auto; aspect-ratio: 16/9; }
+  .cs-body img { object-fit: contain; background: var(--bg); }
   .hero-stats { gap: 24px; }
   .hero-stat-num { font-size: 26px; }
+  /* Fix módulo 07: reseta o posicionamento especial de desktop para mobile */
+  .modules-grid .module-card:last-child {
+    grid-column: auto;
+    max-width: 100%;
+  }
 }
 /* ─── WHATSAPP FLOAT ─── */
 .wa-float {
