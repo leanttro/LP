@@ -405,56 +405,13 @@ section { padding: clamp(70px, 9vw, 110px) clamp(20px, 5vw, 72px); position: rel
 .screenshot-body { aspect-ratio: 16/8; overflow: hidden; background: var(--bg3); }
 .screenshot-body img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 
-/* ─── CAROUSEL ─── */
-.carousel-section { margin-top: 48px; }
-.carousel-label {
-  font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--subtle); margin-bottom: 16px; text-align: center;
-  font-family: 'Montserrat', sans-serif;
+
+/* ─── MODULE 07 FIX ─── */
+@media (min-width: 641px) {
+  .modules-grid .module-07 {
+    grid-column: 1 / 2;
+  }
 }
-.carousel-track-wrap { position: relative; overflow: hidden; border-radius: var(--r-lg); }
-.carousel-track { display: flex; gap: 0; transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
-.carousel-slide {
-  min-width: 100%; flex-shrink: 0;
-  border-radius: var(--r-lg); overflow: hidden;
-  border: 1px solid var(--border); background: var(--surface);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
-  cursor: pointer; transition: box-shadow 0.3s, border-color 0.3s;
-}
-.carousel-slide.active { border-color: rgba(45,99,245,0.4); box-shadow: 0 0 0 1px rgba(45,99,245,0.2), 0 16px 48px rgba(45,99,245,0.12); }
-.cs-top {
-  background: var(--bg3); height: 34px; border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; padding: 0 12px; gap: 5px;
-}
-.cs-label { font-size: 10px; color: var(--subtle); margin-left: auto; font-weight: 600; font-family: 'Montserrat', sans-serif; }
-.cs-body {
-  width: 100%;
-  height: 520px;
-  overflow: hidden;
-  background: var(--bg);
-  display: flex; align-items: flex-start; justify-content: center;
-}
-.cs-body img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
-  transition: transform 0.4s;
-}
-.carousel-slide:hover .cs-body img { transform: scale(1.02); }
-.carousel-nav { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 24px; }
-.carousel-btn {
-  width: 38px; height: 38px; border-radius: 50%;
-  background: var(--surface); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: all 0.2s; color: var(--muted);
-}
-.carousel-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
-.carousel-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
-.carousel-dots { display: flex; gap: 6px; }
-.cdot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-hi); cursor: pointer; transition: all 0.2s; }
-.cdot.active { background: var(--accent); width: 20px; border-radius: 3px; }
 
 /* ─── FLOW (LIGHT) ─── */
 .flow-section { background: var(--light); border-top: 1px solid var(--l-border); }
@@ -861,7 +818,6 @@ footer {
   .adv-grid { grid-template-columns: 1fr 1fr; }
   .charts-grid { grid-template-columns: 1fr; }
   .screenshots-grid { grid-template-columns: 1fr 1fr; }
-  .carousel-slide { min-width: 100%; }
   .nav-links { display: none; }
   .inbox-grid { grid-template-columns: 1fr; gap: 48px; }
   .inbox-accent-card { display: none; }
@@ -875,10 +831,6 @@ footer {
   .screenshots-grid { grid-template-columns: 1fr; }
   .stats-bar-inner { grid-template-columns: 1fr 1fr; }
   .security-grid { grid-template-columns: 1fr 1fr; }
-  .carousel-slide { min-width: 100%; }
-  /* Fix carrossel: usa aspect-ratio em vez de altura fixa para evitar zoom nas imagens largas */
-  .cs-body { height: auto; aspect-ratio: 16/9; }
-  .cs-body img { object-fit: contain; background: var(--bg); }
   .hero-stats { gap: 24px; }
   .hero-stat-num { font-size: 26px; }
   /* Fix módulo 07: reseta o posicionamento especial de desktop para mobile */
@@ -1071,40 +1023,6 @@ footer {
       </div>
       <div class="screenshot-body">
         <img src="https://res.cloudinary.com/dzcaxmbjn/image/upload/v1776795106/Gemini_Generated_Image_9il13c9il13c9il1_1_onu29n.png" alt="Hub de Controle">
-      </div>
-    </div>
-    <div class="carousel-section reveal">
-      <div class="carousel-label">Módulos do sistema — navegue pelas telas</div>
-      <div class="carousel-track-wrap">
-        <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-slide active">
-            <div class="cs-top"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><span class="cs-label">Prospecção e CRM</span></div>
-            <div class="cs-body"><img src="https://res.cloudinary.com/dzcaxmbjn/image/upload/v1776795108/Gemini_Generated_Image_t6h4det6h4det6h4_1_vwcnef.png" alt="CRM e Prospecção"></div>
-          </div>
-          <div class="carousel-slide">
-            <div class="cs-top"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><span class="cs-label">Disparo WhatsApp</span></div>
-            <div class="cs-body"><img src="https://res.cloudinary.com/dzcaxmbjn/image/upload/v1776796229/Design_sem_nome_20_p2b8hc.png" alt="Disparo WhatsApp"></div>
-          </div>
-          <div class="carousel-slide">
-            <div class="cs-top"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><span class="cs-label">Métricas — GSC + GA4</span></div>
-            <div class="cs-body"><img src="https://res.cloudinary.com/dzcaxmbjn/image/upload/v1776791341/8_cmvxsw.png" alt="Métricas GSC e GA4"></div>
-          </div>
-          <div class="carousel-slide">
-            <div class="cs-top"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><span class="cs-label">Hub de Controle</span></div>
-            <div class="cs-body"><img src="https://res.cloudinary.com/dzcaxmbjn/image/upload/v1776795106/Gemini_Generated_Image_9il13c9il13c9il1_1_onu29n.png" alt="Hub de Controle"></div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-nav">
-        <button class="carousel-btn" id="prevBtn">
-          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="carousel-dots" id="carouselDots">
-          <div class="cdot active"></div><div class="cdot"></div><div class="cdot"></div><div class="cdot"></div>
-        </div>
-        <button class="carousel-btn" id="nextBtn">
-          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
       </div>
     </div>
   </div>
@@ -1300,7 +1218,7 @@ footer {
         <div class="module-desc">Metas mensais por categoria com progresso em barras, calendário editorial e relatório PDF automático.</div>
         <span class="module-status status-new">Novo módulo</span>
       </div>
-      <div class="module-card reveal" style="--mc:#9a4ff5; grid-column: 1 / -1; max-width: calc(33.3% - 10px);">
+      <div class="module-card reveal module-07" style="--mc:#9a4ff5;">
         <div class="module-num">Módulo 07</div>
         <div class="module-icon-wrap" style="background:rgba(154,79,245,0.1);color:var(--purple);">
           <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
@@ -1773,27 +1691,6 @@ async function enviarFormulario() {
   animate();
 })();
 
-
-/* ─── CAROUSEL ─── */
-(function() {
-  const track = document.getElementById('carouselTrack');
-  const dots = document.querySelectorAll('#carouselDots .cdot');
-  const slides = document.querySelectorAll('.carousel-slide');
-  let current = 0;
-  const total = slides.length;
-  function goTo(idx) {
-    current = ((idx % total) + total) % total;
-    const w = track.parentElement.offsetWidth;
-    track.style.transform = `translateX(-${current * w}px)`;
-    slides.forEach((s, i) => s.classList.toggle('active', i === current));
-    dots.forEach((d, i) => d.classList.toggle('active', i === current));
-  }
-  document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
-  document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
-  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
-  window.addEventListener('resize', () => goTo(current));
-  setInterval(() => goTo(current + 1), 4500);
-})();
 
 /* ─── CHARTS ─── */
 function drawChart(id, data) {
